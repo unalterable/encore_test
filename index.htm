@@ -21,8 +21,6 @@
       #song-list-container {
         height: 260px;
         margin: 10px;
-        border: 1px solid red;
-        border-radius: 10px;
         overflow-y: scroll;
       }
       #song-list-container::-webkit-scrollbar {
@@ -43,35 +41,42 @@
         border-radius: 4px;
       }
       #song-list {
+        border-spacing: 0;
         width: 100%;
         max-width: 100%;
         overflow-y: scroll;
       }
       #song-list tr {
         text-align: left;
-        height: 20px;
+        height: 40px;
         color: #fff;
         background: -webkit-linear-gradient(grey, black); 
         background: linear-gradient(grey, black); 
       }
-
+      #song-list th {
+        padding: 5px;
+      }
+      #song-list td {
+        padding: 5px;
+      }
   </style>
   <title>Big Daddy Kane</title>
 </head>
 <body>
   <div class="container">
+    <h1>Big Daddy Kane</h1>
     <div id="hidden-frame">
       <div id="song-list-container">
           <table id="song-list">
               <tr>
-                  <th>Name</th>
+                  <th colspan=2>Name</th>
                   <th>Artist</th>
                   <th>Length</th>
               </tr>
           </table>
       </div>
     </div>
-    <input id="fetch-songs" class='button' type="submit" value="Go Get It">
+    <input id="fetch-songs" class='button' type="submit" value="Get Top 10 Songs">
   </div>
 
     <script>
@@ -82,7 +87,9 @@
     }
 
     function newRow( track ){
-      var cells = [ track.name, track.album.name, formatMilliseconds( track.duration_ms ) ];
+      console.log(track);
+      var playIcon = '<a href="'+ track.preview_url +'"><img src="play.png" /></a>';
+      var cells = [ playIcon , track.name, track.album.name, formatMilliseconds( track.duration_ms ) ];
       var row = '<tr>';
       cells.forEach( function(cell){
         row += '<td>' + cell + '</td>';
@@ -92,10 +99,10 @@
     }
 
     function addTracksToSongList( data ) {
-        data.tracks.forEach(function(track){
-          $('#song-list tr:last').after( newRow( track ));
-        })
-      }
+      data.tracks.forEach(function(track){
+        $('#song-list tr:last').after( newRow( track ));
+      })
+    }
 
     $("#fetch-songs").click(function(){
       var URL = {url: "https://api.spotify.com/v1/artists/6futYSDVulYR2PktBjTB5W/top-tracks?country=gb"}
