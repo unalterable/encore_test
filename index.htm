@@ -76,6 +76,9 @@
 
     <script>
 
+    function topTen(tracks){
+      return tracks.slice(0, 10);
+    }
     function formatMilliseconds( ms ){
       var m = parseInt( ms / 60000 );
       return m + ":" + ('0' + parseInt((ms%60000)/1000)).slice(-2);
@@ -94,7 +97,7 @@
     }
 
     function addTracksToSongList( data ) {
-      data.tracks.forEach(function(track){
+      topTen(data.tracks).forEach(function(track){
         $('#song-list').append( newRow( track ));
       })
     }
