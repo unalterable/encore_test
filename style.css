@@ -1,0 +1,56 @@
+
+
+.container {
+  margin: 100px auto 0;
+  padding-left: 15px;
+  padding-right: 15px;
+  width: 500px;
+  text-align:center;
+}
+#hidden-frame {
+  display: block;
+  height: 0px;
+  overflow: hidden;
+  transition: height 2s;
+}
+#song-list-container {
+  height: 260px;
+  margin: 10px;
+  overflow-y: scroll;
+}
+#song-list-container::-webkit-scrollbar {
+  width: 8px;
+}
+#song-list-container::-webkit-scrollbar-track {
+  -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+}
+#song-list-container::-webkit-scrollbar-thumb {
+  border: 2px solid white;
+  border-radius: 4px;
+  background: linear-gradient(grey, black);
+}
+.button {
+  border-color: #ccc;
+  padding: 6px 12px;
+  border: 1px solid transparent;
+  border-radius: 4px;
+}
+#song-list {
+  border-spacing: 0;
+  width: 100%;
+  max-width: 100%;
+  overflow-y: scroll;
+}
+#song-list tr {
+  text-align: left;
+  height: 40px;
+  color: #fff;
+  background: -webkit-linear-gradient(grey, black);
+  background: linear-gradient(grey, black);
+}
+#song-list th {
+  padding: 5px;
+}
+#song-list td {
+  padding: 5px;
+}

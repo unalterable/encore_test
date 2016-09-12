@@ -4,62 +4,8 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
-  <style>
-      .container {
-        margin: 100px auto 0;
-        padding-left: 15px;
-        padding-right: 15px;    
-        width: 500px;
-        text-align:center;
-      }
-      #hidden-frame {
-        display: block;
-        height: 0px;
-        overflow: hidden;
-        transition: height 2s;
-      }
-      #song-list-container {
-        height: 260px;
-        margin: 10px;
-        overflow-y: scroll;
-      }
-      #song-list-container::-webkit-scrollbar {
-        width: 8px;
-      }
-      #song-list-container::-webkit-scrollbar-track {
-        -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
-      }
-      #song-list-container::-webkit-scrollbar-thumb {
-        border: 2px solid white;
-        border-radius: 4px;
-        background: linear-gradient(grey, black);
-      }
-      .button {
-        border-color: #ccc;
-        padding: 6px 12px;
-        border: 1px solid transparent;
-        border-radius: 4px;
-      }
-      #song-list {
-        border-spacing: 0;
-        width: 100%;
-        max-width: 100%;
-        overflow-y: scroll;
-      }
-      #song-list tr {
-        text-align: left;
-        height: 40px;
-        color: #fff;
-        background: -webkit-linear-gradient(grey, black); 
-        background: linear-gradient(grey, black); 
-      }
-      #song-list th {
-        padding: 5px;
-      }
-      #song-list td {
-        padding: 5px;
-      }
-  </style>
+  <script src="index.js" /></script>
+  <link href="style.css" rel="stylesheet" type="text/css" />
   <title>Big Daddy Kane</title>
 </head>
 <body>
@@ -74,43 +20,7 @@
     <input id="fetch-songs" class='button' type="submit" value="Get Top 10 Songs">
   </div>
 
-    <script>
 
-    function topTen(tracks){
-      return tracks.slice(0, 10);
-    }
-    function formatMilliseconds( ms ){
-      var m = parseInt( ms / 60000 );
-      return m + ":" + ('0' + parseInt((ms%60000)/1000)).slice(-2);
-    }
-
-    function newRow( track ){
-      console.log(track);
-      var playIcon = '<a href="'+ track.preview_url +'"><img src="play.png" /></a>';
-      var cells = [ playIcon , track.name, track.album.name, formatMilliseconds( track.duration_ms ) ];
-      var row = '<tr>';
-      cells.forEach( function(cell){
-        row += '<td>' + cell + '</td>';
-      })
-      row += '</tr>';
-      return row
-    }
-
-    function addTracksToSongList( data ) {
-      topTen(data.tracks).forEach(function(track){
-        $('#song-list').append( newRow( track ));
-      })
-    }
-
-    $("#fetch-songs").click(function(){
-      var URL = {url: "https://api.spotify.com/v1/artists/6futYSDVulYR2PktBjTB5W/top-tracks?country=gb"}
-      $("#hidden-frame").css("height", "300px");
-      $.ajax( URL ).done( addTracksToSongList );
-    })
-    
-    
-    </script>
 
 </body>
 </html>
-
