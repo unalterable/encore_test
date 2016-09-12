@@ -42,23 +42,22 @@ body {
 /* XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX*/
 /* XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX*/
 
-#hidden-frame {
+#song-list-frame {
   display: block;
-  height: 0px;
-  overflow: hidden;
+  height: 100px;
+  overflow-y: scroll;
   transition: height 2s;
 }
 
 #song-list-container {
   height: 260px;
-  overflow-y: scroll;
 }
 
-#song-list-container::-webkit-scrollbar {
+#song-list-frame::-webkit-scrollbar {
   width: 8px;
 }
 
-#song-list-container::-webkit-scrollbar-thumb {
+#song-list-frame::-webkit-scrollbar-thumb {
   border: 2px solid white;
   border-radius: 4px;
   background: #b5bdc8; /* Old browsers */
