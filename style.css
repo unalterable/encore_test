@@ -49,10 +49,6 @@ body {
   transition: height 2s;
 }
 
-#song-list-container {
-  height: 260px;
-}
-
 #song-list-frame::-webkit-scrollbar {
   width: 8px;
 }
