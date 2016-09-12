@@ -5,9 +5,7 @@ $(function(){
   $("#fetch-songs").click(function(){
     appendLoadingRow();
     expandSongsFrame();
-    $.ajax( URL ).done( function(data){
-      addTracksToSongList(10, data)
-    });
+    $.ajax( URL ).done( function(data){ addTracksToSongList(10, data) });
   })
 
   function addTracksToSongList( amount, data ) {
@@ -36,9 +34,7 @@ $(function(){
   }
 
   appendLoadingRow();
-  $.ajax( URL ).done( function(data){
-    addTracksToSongList(5, data)
-  });
+  $.ajax( URL ).done( function(data){ addTracksToSongList(5, data) });
 
 
 });
