@@ -10,14 +10,9 @@ var fizzbuzz = function () {
     console.log(i);
   }
  }
-
 }
 
 var triangle_check = function (a,b,c){
-  var arr = [a, b, c];
-  return arr;
+  var arr = [a, b, c].sort();
+  return a > c - b;
 }
-
-console.log(triangle_check(3,4,5));
-
-
